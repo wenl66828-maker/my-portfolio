@@ -1,0 +1,23 @@
+packages:
+  "framer-motion": "Required for all complex page transitions, scroll animations, and interactive micro-interactions (tilt cards, cursor, aurora background)."
+  "clsx": "Utility for constructing className strings conditionally."
+  "tailwind-merge": "Utility to merge tailwind classes without style conflicts."
+
+images:
+  - path: "artifacts/portfolio/public/images/profile.png"
+    description: "Cinematic moody portrait silhouette of a creative professional, neon teal and purple rim lighting, minimal dark background, photorealistic"
+    aspect_ratio: "1:1"
+  - path: "artifacts/portfolio/public/images/project1.png"
+    description: "Abstract 3D glassmorphism shapes floating in dark space with glowing cyan and magenta lights, high resolution, cinematic"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project2.png"
+    description: "Modern architectural minimal interface concept, dark mode, sleek, subtle glowing accents in deep violet"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project3.png"
+    description: "Data visualization dashboard glowing over a dark sleek background with holographic lines and points, premium feel"
+    aspect_ratio: "16:9"
+
+notes:
+  - The application is a fully self-contained static portfolio.
+  - The contact form simulates a network request using a mock TanStack Query mutation since no backend is provided.
+  - Generous use of Framer Motion for scroll reveals, text animations, and a custom mouse cursor.
