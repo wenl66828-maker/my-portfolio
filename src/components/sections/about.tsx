@@ -29,12 +29,15 @@ const education = [
   },
 ];
 
-const workExp = [
-  { org: "大苑藝術", role: "策展助理", logo: "images/大苑藝術 logo.jpg" },
-  { org: "甘樂文創", role: "ESG 專案管理實習生", logo: "images/甘樂文創 logo.png" },
-  { org: "藝信 ART record", role: "UI/UX 設計實習生", logo: "images/藝信 logo.png" },
-  { org: "Leading Cities", role: "Municipal Partner Relations Fellow", logo: "images/leading_cities_logo.jpeg" },
-  { org: "Portaly", role: "產品設計實習生", logo: "images/portaly logo.webp" },
+// 由新到舊排列；period 與 logo 可省略（沒有 logo 時顯示名稱首字）
+const workExp: { org: string; role: string; period?: string; logo?: string }[] = [
+  { org: "仁寶電腦", role: "使用者經驗研究員", period: "2026.08 – 2026.09", logo: "images/仁寶電腦 logo.png" },
+  { org: "誠致教育基金會", role: "營運發展實習生", period: "2026.02 – 2026.08", logo: "images/誠致教育基金會 logo.png" },
+  { org: "Portaly", role: "產品設計實習生", period: "2025.07 – 2026.01", logo: "images/portaly logo.webp" },
+  { org: "Leading Cities", role: "Municipal Partner Relations Fellow", period: "2025.01 – 2025.05", logo: "images/leading_cities_logo.jpeg" },
+  { org: "藝信 ART record", role: "UI/UX 設計實習生", period: "2024.07 – 2024.12", logo: "images/藝信 logo.png" },
+  { org: "甘樂文創", role: "ESG 專案管理實習生", period: "2023.07 – 2023.08", logo: "images/甘樂文創 logo.png" },
+  { org: "大苑藝術", role: "策展助理", period: "2022.10 – 2022.12", logo: "images/大苑藝術 logo.jpg" },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -94,11 +97,17 @@ export function About() {
                     className="flex-shrink-0 w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center"
                     style={{ background: "rgba(255,255,255,0.85)", border: "1px solid hsl(330 20% 90%)" }}
                   >
-                    <img
-                      src={`${import.meta.env.BASE_URL}${exp.logo}`}
-                      alt={exp.org}
-                      className="w-full h-full object-cover"
-                    />
+                    {exp.logo ? (
+                      <img
+                        src={`${import.meta.env.BASE_URL}${exp.logo}`}
+                        alt={exp.org}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-sm font-bold font-body" style={{ color: "hsl(340 45% 60%)" }}>
+                        {exp.org.charAt(0)}
+                      </span>
+                    )}
                   </div>
                   <div>
                     <p className="text-[15px] font-semibold text-foreground font-body leading-snug">
@@ -106,6 +115,7 @@ export function About() {
                     </p>
                     <p className="text-xs text-muted-foreground font-body mt-0.5">
                       {exp.org}
+                      {exp.period && <span className="text-muted-foreground/60"> · {exp.period}</span>}
                     </p>
                   </div>
                 </div>
